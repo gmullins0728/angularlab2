@@ -3,15 +3,15 @@
         <h1>{{title}}</h1>
         <p>{{pTag}}</p>
     <form action="">
-        <input [(ngModel)]="newTask" type="text" name="filter" placeholder="Filter your to-dos">
+        <input ng-model="searchTodos" type="text" placeholder="Filter your to-dos">
     </form>
-    <div [hidden]="!newTask">
+    <!-- <div [hidden]="!newTask">
         Typing: {{ newTask }}
-    </div>
+    </div> -->
     
     
 <ng-container class="todolist">
-    <div *ngFor="let todo of todos; let i = index">
+    <div *ngFor="let todo of todos; let i = index" ng-repeat="todo in todos| filter: searchTodos">
         {{i+1}}. 
         <button (click) ="completedTask(todo)" mat-stroked-button color="primary" *ngIf="!todo.completed">Complete</button>
         <span [ngClass] = "{completed: todo.completed}">{{todo.task}}</span>

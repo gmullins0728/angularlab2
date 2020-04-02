@@ -45,6 +45,11 @@ export class TodoComponent implements OnInit {
     }
   }
 
+  // filter($event){
+  //   let reg = $event.target.value;
+  //   this.todos = this.todos.filter(x => return x.toLowerCase().indexOf(reg.toLowerCase()) != -1);
+  // }
+
   ngOnInit(): void {
   }
 
