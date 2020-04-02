@@ -5,11 +5,6 @@
     <form action="">
         <input ng-model="searchTodos" type="text" placeholder="Filter your to-dos">
     </form>
-    <!-- <div [hidden]="!newTask">
-        Typing: {{ newTask }}
-    </div> -->
-    
-    
 <ng-container class="todolist">
     <div *ngFor="let todo of todos; let i = index" ng-repeat="todo in todos| filter: searchTodos">
         {{i+1}}. 
@@ -22,5 +17,8 @@
         <input [(ngModel)]="newTask" type="text" placeholder="Add your to-do">
         <button (click)="addTask(newTask)" class="addButton">Add</button>
 </div>
+<div [hidden]="!newTask">
+        Typing: {{ newTask }}
+    </div> 
     </section>
 </main>
