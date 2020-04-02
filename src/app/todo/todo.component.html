@@ -1,0 +1,26 @@
+<main>
+    <section>
+        <h1>{{title}}</h1>
+        <p>{{pTag}}</p>
+    <form action="">
+        <input [(ngModel)]="newTask" type="text" name="filter" placeholder="Filter your to-dos">
+    </form>
+    <div [hidden]="!newTask">
+        Typing: {{ newTask }}
+    </div>
+    
+    
+<ng-container class="todolist">
+    <div *ngFor="let todo of todos; let i = index">
+        {{i+1}}. 
+        <button (click) ="completedTask(todo)" mat-stroked-button color="primary" *ngIf="!todo.completed">Complete</button>
+        <span [ngClass] = "{completed: todo.completed}">{{todo.task}}</span>
+        <button (click)="removeTask(i)" class="deleteButton" style ="float: right">X</button>
+    </div>
+</ng-container>
+<div>
+        <input [(ngModel)]="newTask" type="text" placeholder="Add your to-do">
+        <button (click)="addTask(newTask)" class="addButton">Add</button>
+</div>
+    </section>
+</main>
